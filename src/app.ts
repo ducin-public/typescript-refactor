@@ -1,7 +1,7 @@
 /*global jQuery, Handlebars, Router */
 import * as jQuery from 'jquery'
 import * as Handlebars from 'handlebars'
-
+console.log("test")
 jQuery(function ($) {
 	'use strict';
 	Handlebars.registerHelper('eq', function (a, b, options) {
