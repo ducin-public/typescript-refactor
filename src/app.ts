@@ -1,7 +1,9 @@
 /*global jQuery, Handlebars, Router */
+import * as jQuery from 'jquery'
+import * as Handlebars from 'handlebars'
+
 jQuery(function ($) {
 	'use strict';
-
 	Handlebars.registerHelper('eq', function (a, b, options) {
 		return a === b ? options.fn(this) : options.inverse(this);
 	});
