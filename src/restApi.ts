@@ -14,7 +14,7 @@ export class RestApi implements Storage {
         createTodo(payload)
     }
 
-    update(payload: Todo['title']) {
+    update(payload: Todo) {
         updateTodo(payload)
     }
 
@@ -22,4 +22,19 @@ export class RestApi implements Storage {
         deleteTodo(payload)
     }
 
+    toggle(paylaod) {
+
+    }
+
+    toggleAll(payload: Todo) {
+
+    }
+
+    destroy(payload: Todo) {
+
+    }
+
+    destroyCompleted() {
+
+    }
 }
