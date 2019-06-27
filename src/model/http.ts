@@ -8,7 +8,7 @@ export const getTodos = () =>
 export const createTodo = (payload: Todo) =>
     axios.post(`${BASE_URL}/${TODOS_URL}`, payload)
 
-export const updateTodo = (payload: Todo) =>
+export const updateTodo = (payload: Todo['title']) =>
     axios.put(`${BASE_URL}/${TODOS_URL}`, payload)
 
 export const deleteTodo = (payload: Todo['id']) =>
