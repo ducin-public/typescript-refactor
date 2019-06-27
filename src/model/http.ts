@@ -7,11 +7,11 @@ export const getTodos = async () => {
     return response.data
 }
 
-export const createTodo = async (paylaod: Todo) =>
-    await axios.post(`${BASE_URL}/${TODOS_URL}`, paylaod)
+export const createTodo = async (payload: Todo) =>
+    await axios.post(`${BASE_URL}/${TODOS_URL}`, payload)
 
-export const updateTodo = async (paylaod: Todo) =>
-    await axios.put(`${BASE_URL}/${TODOS_URL}`, paylaod)
+export const updateTodo = async (payload: Todo) =>
+    await axios.put(`${BASE_URL}/${TODOS_URL}`, payload)
 
-export const deleteItemById = async <T extends { id: string }> (paylaod: T['id']) =>
-    await axios.delete(`${BASE_URL}/${TODOS_URL}`, { data : paylaod })
+export const deleteTodo = async (payload: Todo['id']) =>
+    await axios.delete(`${BASE_URL}/${TODOS_URL}/${payload}`)
