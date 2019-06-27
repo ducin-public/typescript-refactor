@@ -3,7 +3,7 @@ export const ESCAPE_KEY = 27;
 
 
 export var util = {
-    uuid: function () {
+    uuid: ()=> {
         /*jshint bitwise:false */
         var i, random;
         var uuid = '';
@@ -18,10 +18,15 @@ export var util = {
 
         return uuid;
     },
-    pluralize: function (count, word) {
-        return count === 1 ? word : word + 's';
-    },
-    store: function (namespace, data) {
+    pluralize: (count, word)=> count === 1 ? word : word + 's',
+    newTodo:(title)=>
+        ({
+            id: util.uuid(),
+            completed: false,
+            title
+
+    }),
+    store: (namespace, data)=> {
         if (arguments.length > 1) {
             return localStorage.setItem(namespace, JSON.stringify(data));
         } else {

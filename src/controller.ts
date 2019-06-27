@@ -37,12 +37,7 @@ export class Controller {
         }
 
         const tempTodos=this.model.getTodos();
-        tempTodos.push({
-            id: util.uuid(),
-            title: val,
-            completed: false
-        });
-
+        tempTodos.push(util.newTodo(val))
         this.model.setTodos(tempTodos);
 
         $input.val('');
