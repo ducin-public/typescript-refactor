@@ -15,6 +15,8 @@ export class Controller {
     }
 
     bindEvents() {
+        $('#rest_checkbox').on('click', this.toggleRestData.bind(this));
+        $('#api_checkbox').on('click', this.toggleApiData.bind(this));
         $('#new-todo').on('keyup', this.create.bind(this));
         $('#toggle-all').on('change', this.toggleAll.bind(this));
         $('#footer').on('click', '#clear-completed', this.destroyCompleted.bind(this));
@@ -26,6 +28,13 @@ export class Controller {
             .on('click', '.destroy', this.destroy.bind(this));
     }
 
+    toggleApiData (e) {
+        console.log(e.target.checked)
+    }
+
+    toggleRestData (e) {
+        console.log(e.target.checked)
+    }
 
     create (e) {
         // http post jeden

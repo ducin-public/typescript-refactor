@@ -9,7 +9,7 @@ jQuery(function ($) {
 	const model= new Model();
 	const view= new View(model);
 	const controller= new Controller(model,view);
-	
+
 	var App = {
 		init: function () {
 			const todos = util.store('todos-jquery');
