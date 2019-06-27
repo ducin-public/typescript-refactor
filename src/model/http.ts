@@ -7,11 +7,26 @@ export const getTodos = async () => {
     return response.data
 }
 
-export const createTodo = async (payload: Todo) =>
-    await axios.post(`${BASE_URL}/${TODOS_URL}`, payload)
+export const createTodo = async (payload: Todo) => {
+    try {
+        await axios.post(`${BASE_URL}/${TODOS_URL}`, payload)
+    } catch (e) {
+        console.error(e)
+    }
+}
 
-export const updateTodo = async (payload: Todo) =>
-    await axios.put(`${BASE_URL}/${TODOS_URL}`, payload)
+export const updateTodo = async (payload: Todo) => {
+    try {
+        await axios.put(`${BASE_URL}/${TODOS_URL}`, payload)
+    } catch (e) {
+        console.error(e)
+    }
+}
 
-export const deleteTodo = async (payload: Todo['id']) =>
-    await axios.delete(`${BASE_URL}/${TODOS_URL}/${payload}`)
+export const deleteTodo = async (payload: Todo['id']) => {
+    try {
+        await axios.delete(`${BASE_URL}/${TODOS_URL}/${payload}`)
+    } catch (e) {
+        console.error(e)
+    }
+}
