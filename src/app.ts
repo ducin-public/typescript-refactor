@@ -5,6 +5,7 @@ import { util } from './util';
 import { View } from './view';
 
 declare const Router:any;
+declare const jQuery:any;
 jQuery(function ($) {
 	const model= new Model();
 	const view= new View(model);
