@@ -1,0 +1,6 @@
+export class RestApi {
+
+    constructor() {
+    }
+
+}
