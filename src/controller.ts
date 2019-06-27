@@ -8,6 +8,8 @@ export class Controller {
 
     private view:View;
     private model:Model;
+    LOCAL_STORAGE_MODE:boolean=true;
+    REST_API_MODE:boolean=false;
 
     constructor(model:Model,view:View) {
         this.model=model;
@@ -15,7 +17,7 @@ export class Controller {
     }
 
     bindEvents() {
-        $('#rest_checkbox').on('click', this.toggleRestData.bind(this));
+        $('#local_checkbox').on('click', this.toggleRestData.bind(this));
         $('#api_checkbox').on('click', this.toggleApiData.bind(this));
         $('#new-todo').on('keyup', this.create.bind(this));
         $('#toggle-all').on('change', this.toggleAll.bind(this));
@@ -30,10 +32,12 @@ export class Controller {
 
     toggleApiData (e) {
         console.log(e.target.checked)
+        this.REST_API_MODE=e.target.checked;
     }
 
     toggleRestData (e) {
         console.log(e.target.checked)
+        this.LOCAL_STORAGE_MODE=e.target.checked;
     }
 
     create (e) {
