@@ -4,6 +4,7 @@ npm-debug.log
 # IDEs
 .idea
 .vscode
+.cache
 
 # additional modules (compilers, setup)
 node_modules
