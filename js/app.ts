@@ -1,3 +1,12 @@
+/// <reference path="../node_modules/@types/jquery/index.d.ts" />
+/// <reference path="../node_modules/@types/handlebars/index.d.ts" />
+/// <reference path="../node_modules/@types/q/index.d.ts" />
+
+// import jQuery from 'jquery';
+// import Handlebars from 'handlebars';
+// import { Router } from 'director/build/director';
+
+declare const Router: any
 /*global jQuery, Handlebars, Router */
 jQuery(function ($) {
 	'use strict';
@@ -28,7 +37,7 @@ jQuery(function ($) {
 		pluralize: function (count, word) {
 			return count === 1 ? word : word + 's';
 		},
-		store: function (namespace, data) {
+		store: function (namespace, data?) {
 			if (arguments.length > 1) {
 				return localStorage.setItem(namespace, JSON.stringify(data));
 			} else {

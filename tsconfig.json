@@ -4,6 +4,6 @@
     "module": "commonjs"
   },
   "files": [
-    "src/app.ts"
+    "js/app.ts"
   ]
 }
