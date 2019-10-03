@@ -5,7 +5,6 @@
 import axios from 'axios';
 import util from './util/util';
 import bindEvents from './view/bindEvents';
-import render from './view/render';
 
 // import jQuery from 'jquery';
 // import Handlebars from 'handlebars';
@@ -38,7 +37,15 @@ jQuery(function ($) {
 			}).init('/all');
 		},
 		bindEvents: bindEvents,
-		render: render,
+		render:  function() {
+      var todos = this.getFilteredTodos();
+      $('#todo-list').html(this.todoTemplate(todos));
+      $('#main').toggle(todos.length > 0);
+      $('#toggle-all').prop('checked', this.getActiveTodos().length === 0);
+      this.renderFooter();
+      $('#new-todo').focus();
+      util.store('todos-jquery', this.todos);
+    },
 		renderFooter: function () {
 			var todoCount = this.todos.length;
 			var activeTodoCount = this.getActiveTodos().length;
