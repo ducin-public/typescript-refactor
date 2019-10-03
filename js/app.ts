@@ -5,6 +5,8 @@
 import axios from 'axios';
 import util from './util/util';
 import bindEvents from './view/bindEvents';
+import getTodosList from './api/getTodosList';
+
 
 // import jQuery from 'jquery';
 // import Handlebars from 'handlebars';
@@ -19,12 +21,16 @@ jQuery(function ($) {
 		return a === b ? options.fn(this) : options.inverse(this);
 	});
 
+	getTodosList()
+	console.log(util.store('todos-jquery'))
+
 	var ENTER_KEY = 13;
 	var ESCAPE_KEY = 27;
 
 	var App = {
 		init: function () {
 			this.todos = util.store('todos-jquery');
+			// this.todos = getTodosList;
 			this.todoTemplate = Handlebars.compile($('#todo-template').html());
 			this.footerTemplate = Handlebars.compile($('#footer-template').html());
 			this.bindEvents();
