@@ -6,7 +6,7 @@ module.exports = {
     javascript: [
       'webpack-dev-server/client?http://localhost:' + devServerPort,
     ],
-    typescript: "./src/app.ts",
+    typescript: "./js/app.ts",
     html: "./index.html",
   },
   output: {

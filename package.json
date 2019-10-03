@@ -10,6 +10,8 @@
     "parcel": "parcel index.html"
   },
   "dependencies": {
+    "@types/handlebars": "^3.0.28",
+    "@types/jquery": "^2.0.54",
     "director": "~1.2.2",
     "handlebars": "~2.0.0",
     "jquery": "~2.1.1",
