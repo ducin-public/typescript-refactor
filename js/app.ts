@@ -3,7 +3,9 @@
 /// <reference path="../node_modules/@types/q/index.d.ts" />
 
 import axios from 'axios';
-import util from './util/util'
+import util from './util/util';
+import bindEvents from './view/bindEvents';
+import render from './view/render';
 
 // import jQuery from 'jquery';
 // import Handlebars from 'handlebars';
@@ -35,26 +37,8 @@ jQuery(function ($) {
 				}.bind(this)
 			}).init('/all');
 		},
-		bindEvents: function () {
-			$('#new-todo').on('keyup', this.create.bind(this));
-			$('#toggle-all').on('change', this.toggleAll.bind(this));
-			$('#footer').on('click', '#clear-completed', this.destroyCompleted.bind(this));
-			$('#todo-list')
-				.on('change', '.toggle', this.toggle.bind(this))
-				.on('dblclick', 'label', this.edit.bind(this))
-				.on('keyup', '.edit', this.editKeyup.bind(this))
-				.on('focusout', '.edit', this.update.bind(this))
-				.on('click', '.destroy', this.destroy.bind(this));
-		},
-		render: function () {
-			var todos = this.getFilteredTodos();
-			$('#todo-list').html(this.todoTemplate(todos));
-			$('#main').toggle(todos.length > 0);
-			$('#toggle-all').prop('checked', this.getActiveTodos().length === 0);
-			this.renderFooter();
-			$('#new-todo').focus();
-			util.store('todos-jquery', this.todos);
-		},
+		bindEvents: bindEvents,
+		render: render,
 		renderFooter: function () {
 			var todoCount = this.todos.length;
 			var activeTodoCount = this.getActiveTodos().length;
