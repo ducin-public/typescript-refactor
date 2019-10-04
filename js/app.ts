@@ -6,7 +6,8 @@ import axios from 'axios';
 import util from './util/util';
 import bindEvents from './view/bindEvents';
 import getTodosList from './api/getTodosList';
-
+import createTodo from './api/createTodo';
+import deleteTodo from './api/deleteTodo';
 
 // import jQuery from 'jquery';
 // import Handlebars from 'handlebars';
@@ -22,6 +23,7 @@ jQuery(function ($) {
 	});
 
 	getTodosList()
+	createTodo("XYZXYZXYZXYZ")
 	console.log(util.store('todos-jquery'))
 
 	var ENTER_KEY = 13;
@@ -167,7 +169,10 @@ jQuery(function ($) {
 			this.render();
 		},
 		destroy: function (e) {
+			const deleteItem = this.todos.splice(this.indexFromEl(e.target), 1).map(item => item.id);
+			console.log(deleteItem[0])
 			this.todos.splice(this.indexFromEl(e.target), 1);
+			deleteTodo(deleteItem[0])
 			this.render();
 		}
 	};
